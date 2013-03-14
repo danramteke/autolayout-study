@@ -17,7 +17,6 @@
 		2187F81316F1522300CF5697 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2187F81216F1522300CF5697 /* Default@2x.png */; };
 		2187F81516F1522300CF5697 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2187F81416F1522300CF5697 /* Default-568h@2x.png */; };
 		2187F81816F1522300CF5697 /* DRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2187F81716F1522300CF5697 /* DRViewController.m */; };
-		2187F81B16F1522300CF5697 /* DRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2187F81916F1522300CF5697 /* DRViewController.xib */; };
 		2187F82316F1522300CF5697 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2187F82216F1522300CF5697 /* SenTestingKit.framework */; };
 		2187F82416F1522300CF5697 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2187F7FE16F1522300CF5697 /* UIKit.framework */; };
 		2187F82516F1522300CF5697 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2187F80016F1522300CF5697 /* Foundation.framework */; };
@@ -51,7 +50,6 @@
 		2187F81416F1522300CF5697 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2187F81616F1522300CF5697 /* DRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRViewController.h; sourceTree = "<group>"; };
 		2187F81716F1522300CF5697 /* DRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRViewController.m; sourceTree = "<group>"; };
-		2187F81A16F1522300CF5697 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DRViewController.xib; sourceTree = "<group>"; };
 		2187F82116F1522300CF5697 /* Autolayout StudyTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Autolayout StudyTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2187F82216F1522300CF5697 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2187F82A16F1522300CF5697 /* Autolayout StudyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Autolayout StudyTests-Info.plist"; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				2187F80E16F1522300CF5697 /* DRAppDelegate.m */,
 				2187F81616F1522300CF5697 /* DRViewController.h */,
 				2187F81716F1522300CF5697 /* DRViewController.m */,
-				2187F81916F1522300CF5697 /* DRViewController.xib */,
 				2187F80516F1522300CF5697 /* Supporting Files */,
 			);
 			path = "Autolayout Study";
@@ -236,7 +233,6 @@
 				2187F81116F1522300CF5697 /* Default.png in Resources */,
 				2187F81316F1522300CF5697 /* Default@2x.png in Resources */,
 				2187F81516F1522300CF5697 /* Default-568h@2x.png in Resources */,
-				2187F81B16F1522300CF5697 /* DRViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,14 +298,6 @@
 				2187F80816F1522300CF5697 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		2187F81916F1522300CF5697 /* DRViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2187F81A16F1522300CF5697 /* en */,
-			);
-			name = DRViewController.xib;
 			sourceTree = "<group>";
 		};
 		2187F82B16F1522300CF5697 /* InfoPlist.strings */ = {
@@ -454,6 +442,7 @@
 				2187F83516F1522300CF5697 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2187F83616F1522300CF5697 /* Build configuration list for PBXNativeTarget "Autolayout StudyTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +451,7 @@
 				2187F83816F1522300CF5697 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
