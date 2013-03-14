@@ -14,6 +14,18 @@
 
 @implementation DRViewController
 
+- (id) init {
+    self = [super init];
+    if (self) {
+        UILabel* someLabel = [[UILabel alloc] init];
+        someLabel.text = @"asdf";
+        someLabel.frame = CGRectMake(40, 40, 100, 20);
+//        [self.view addConstraint:[NSLayoutConstraint ]]
+        [self.view addSubview:someLabel];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
