@@ -15,6 +15,7 @@
 @end
 
 @implementation DRViewController
+BOOL firstSide = YES;
 
 - (id) init {
     self = [super init];
@@ -43,6 +44,41 @@
 -(IBAction)buttonPushed:(id)sender{
     _label.text = [[NSDate date] description];
     [_label sizeToFit];
+    
+    if (firstSide) {
+        [UIView transitionWithView:_innerView duration:0.5 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+            [_innerButton removeFromSuperview];
+            _innerButton = [self setupSecondButton];
+        } completion:nil];
+    } else {
+        [UIView transitionWithView:_innerView duration:0.5 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+            [_innerButton removeFromSuperview];
+            _innerButton = [self setupInnerButton];
+        } completion:nil];
+    }
+    firstSide = !firstSide;
+}
+
+-(UIButton*)setupSecondButton {
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"Second" forState:UIControlStateNormal];
+    [button setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [button setBackgroundColor:[UIColor redColor]];
+    button.reversesTitleShadowWhenHighlighted = YES;
+
+    [_innerView removeConstraints:[_innerView constraints]];
+    [_innerView addSubview:button];
+
+    [_innerView addConstraints:@[
+     [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_innerView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:-6.0],
+     [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_innerView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:-6.0],
+     [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:_innerView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0],
+     [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_innerView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]
+     ]];
+
+    button.userInteractionEnabled = YES;
+    [button addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
+    return button;
 }
 
 -(UIButton*)setupInnerButton {
@@ -51,15 +87,17 @@
     [button setTranslatesAutoresizingMaskIntoConstraints:NO];
     [button setBackgroundColor:[UIColor redColor]];
     button.reversesTitleShadowWhenHighlighted = YES;
-    button.showsTouchWhenHighlighted = YES;
 
+
+    [_innerView removeConstraints:[_innerView constraints]];
+    [_innerView addSubview:button];
     [_innerView addConstraints:@[
      [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_innerView attribute:NSLayoutAttributeHeight multiplier:1.0 constant:-6.0],
      [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_innerView attribute:NSLayoutAttributeWidth multiplier:1.0 constant:-6.0],
      [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:_innerView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0],
      [NSLayoutConstraint constraintWithItem:button attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_innerView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]
      ]];
-    [_innerView addSubview:button];
+
     button.userInteractionEnabled = YES;
     [button addTarget:self action:@selector(buttonPushed:) forControlEvents:UIControlEventTouchUpInside];
     return button;
